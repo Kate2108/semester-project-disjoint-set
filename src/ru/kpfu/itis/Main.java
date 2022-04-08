@@ -15,24 +15,23 @@ public class Main {
         // и название файла с тестовыми данными (их должно быть 5)
         // ВАЖНО: после основной работы надо обработать исключение, возникающее, если на входе одинаковые элементы
         // наверное это будет NullPointer
-        try(Scanner scanner = new Scanner( new FileReader("D:\\DisjointSet\\src\\ru\\kpfu\\itis\\add\\testdata1"))){
+        try (Scanner scanner = new Scanner(new FileReader("D:\\DisjointSet\\src\\ru\\kpfu\\itis\\add\\testdata0"))) {
             elems = new int[scanner.nextInt()];
-            while (scanner.hasNextInt()){
+            while (scanner.hasNextInt()) {
                 elems[i++] = scanner.nextInt();
             }
             DisjointSet ds = new DisjointSet(elems);
             // здесь будут тесты по времени, пока наглядное изменение данных
             // просмотрите, что выводит программа!
-        ds.printSets(elems, ds);
-        ds.Union(6, 8);
-        ds.printSets(elems, ds);
-        ds.Union(9, 10);
-        ds.printSets(elems, ds);
-        ds.Union(9, 8);
-        ds.printSets(elems, ds);
+            ds.printSets(elems, ds);
+            ds.Union(6, 8);
+            ds.printSets(elems, ds);
+            ds.Union(9, 10);
+            ds.printSets(elems, ds);
+            ds.Union(9, 8);
+            ds.printSets(elems, ds);
 
-        }
-        catch (FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
 
