@@ -9,24 +9,17 @@ public class Main {
     public static void main(String[] args) {
         int[] elems;
         int i = 0;
-        // входные тестовые данные считываются при помощи Scanner с файла из папки add
-        // которые сгенерированы классом Generator
-        // чтобы протестировать структуру на различных данных, необходимо указать полный путь до папки add
-        // и название файла с тестовыми данными (их должно быть 5)
-        // ВАЖНО: после основной работы надо обработать исключение, возникающее, если на входе одинаковые элементы
-        // наверное это будет NullPointer
-        String absolutePath = "/Users/olga/IdeaProjects/semester-project-disjoint-set/src/ru/kpfu/itis/add/testdata0";
+        String absolutePath = "D:\\semester-project-disjoint-set\\src\\ru\\kpfu\\itis\\add\\testdata15";
         try (Scanner scanner = new Scanner(new FileReader(absolutePath))) {
             elems = new int[scanner.nextInt()];
             while (scanner.hasNextInt()) {
                 elems[i++] = scanner.nextInt();
             }
-
             long sumTimeTestUnion1 = 0;
             long sumTimeTestUnion2 = 0;
             long sumTimeTestFind = 0;
 
-            double num = 1000.0;
+            double num = 100.0;
             for (int j = 0; j < num; j++) {
                 sumTimeTestUnion1 +=  testUnion1(elems);
                 sumTimeTestUnion2 += testUnion2(elems);
@@ -35,16 +28,6 @@ public class Main {
             System.out.println("Average time for testUnion1(): " + sumTimeTestUnion1/num + " millis");
             System.out.println("Average time for testUnion2(): " + sumTimeTestUnion2/num + " millis");
             System.out.println("Average time for testFind(): " + sumTimeTestFind/num + " millis");
-            // здесь будут тесты по времени, пока наглядное изменение данных
-            // просмотрите, что выводит программа!
-//            DisjointSet ds = new DisjointSet(elems);
-//            ds.printSets(elems, ds);
-//            ds.Union(6, 8);
-//            ds.printSets(elems, ds);
-//            ds.Union(9, 10);
-//            ds.printSets(elems, ds);
-//            ds.Union(9, 8);
-//            ds.printSets(elems, ds);
 
         } catch (FileNotFoundException ex) {
             System.err.println(ex.getMessage());
